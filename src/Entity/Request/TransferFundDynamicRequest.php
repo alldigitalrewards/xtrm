@@ -163,17 +163,15 @@ class TransferFundDynamicRequest
         return [
             'TransferFundToDynamicAccountUser' => [
                 'Request' => [
-                    'Transaction' => [
-                        'IssuerAccountNumber' => $this->getIssuerAccountNumber(),
-                        'FromAccountNumber' => $this->getFromAccountNumber(),
-                        'FromWalletID' => $this->getFromWalletID(),
-                        'RecipientFirstName' => $this->getRecipientFirstName(),
-                        'RecipientLastName' => $this->getRecipientLastName(),
-                        'RecipientEmail' => $this->getRecipientEmail(),
-                        'Currency' => $this->getCurrency(),
-                        'Amount' => $this->getAmount(),
-                        'Description' => $this->getDescription(),
-                    ],
+                    'IssuerAccountNumber' => $this->getIssuerAccountNumber(),
+                    'FromAccountNumber' => $this->getFromAccountNumber(),
+                    'FromWalletID' => $this->getFromWalletID(),
+                    'RecipientFirstName' => $this->getRecipientFirstName(),
+                    'RecipientLastName' => $this->getRecipientLastName(),
+                    'RecipientEmail' => $this->getRecipientEmail(),
+                    'Currency' => $this->getCurrency(),
+                    'Amount' => $this->getAmount(),
+                    'Description' => $this->getDescription(),
                 ]
             ]
         ];
