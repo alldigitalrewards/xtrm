@@ -719,10 +719,11 @@ class Client
 
     /**
      * @param TransferFundDynamicRequest $request
-     * @return array
+     * @return TransferFundToDynamicAccountUserResultResponse|null
      * @throws XtrmException
      */
-    public function transferFundsDynamic(TransferFundDynamicRequest $request): array
+    public function transferFundsDynamic(TransferFundDynamicRequest $request):
+    ?TransferFundToDynamicAccountUserResultResponse
     {
         $this->setRequestType('POST');
         $this->setPath(self::TRANSFER_FUNDS_DYNAMIC);
@@ -737,12 +738,12 @@ class Client
             $details = $response
                        ['TransferFundToDynamicAccountUserResponse']
                        ['TransferFundToDynamicAccountUserResult'];
-            return $this->hydrationService()->hydrate(TransferFundToDynamicAccountUserResultResponse::class, $details);
+            return new TransferFundToDynamicAccountUserResultResponse($details);
         }
         if (empty($this->getErrors()) === false) {
             $this->throwException();
         }
-        return [];
+        return null;
     }
 
     /**
