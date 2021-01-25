@@ -96,6 +96,10 @@ class Client
      * @var array
      */
     private $errors = [];
+    /**
+     * @var string
+     */
+    private $proxy = '';
 
     /**
      * @return \GuzzleHttp\Client
@@ -107,6 +111,7 @@ class Client
                 [
                     'http_errors' => false,
                     'allow_redirects' => false,
+                    'proxy' => $this->getProxy()
                 ]
             );
         }
@@ -300,6 +305,22 @@ class Client
     public function setErrors(array $errors)
     {
         $this->errors = $errors;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProxy(): string
+    {
+        return $this->proxy ?? '';
+    }
+
+    /**
+     * @param string $proxy
+     */
+    public function setProxy(string $proxy): void
+    {
+        $this->proxy = $proxy;
     }
 
     /**
